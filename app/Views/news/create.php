@@ -23,8 +23,11 @@
             <textarea name="body" cols="45" rows="4"></textarea>
         </div>
         <br/>
-        <input type="submit" name="submit" value="Create">
-        
+
+        <div>
+            <input class="btn-submit" type="submit" name="submit" value="Create">
+        </div>
+
     </form>
 
 </section>

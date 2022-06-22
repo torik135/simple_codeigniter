@@ -9,7 +9,9 @@ class News extends BaseController
     {
         $model = model(NewsModel::class);
         $data = [
-            'news' => $model->getNews(),
+            // 'news' => $model->getNews(),
+            'news' => $model->paginate(10),
+            'pager' => $model->pager,
             'title' => 'News archive',
         ];
 
