@@ -8,16 +8,21 @@
     <form action="/news/create" method="post">
         <?= csrf_field() ?>
 
-        <div>
+        <div class="input-label">
             <label for="title">Title</label>
-            <input type="input" name="title"/><br/>
         </div>
+        <div class="input-text">
+            <input type="input" name="title"/>
+        </div>
+        <br/>
 
-        <div>
+        <div class="input-label">
             <label for="body">Body</label>
-            <textarea name="body" cols="45" rows="4"></textarea><br/>
         </div>
-        
+        <div class="input-text">
+            <textarea name="body" cols="45" rows="4"></textarea>
+        </div>
+        <br/>
         <input type="submit" name="submit" value="Create">
         
     </form>

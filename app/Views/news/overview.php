@@ -1,6 +1,10 @@
 <section>
 
+    <h2>
+        <a href="/news/create">Create News</a>
+    </h2>
     <h2><?= esc($title) ?></h2>
+
 
     <?php if (! empty($news) && is_array($news)): ?>
     
@@ -31,9 +35,6 @@
     <section>
 
         <h1><?= esc($title) ?></h1>
-        <h2>
-            <a href="/news/create">Create News</a>
-        </h2>
 
     </section>
 </div>

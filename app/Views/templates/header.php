@@ -208,7 +208,7 @@
             <li class="menu-toggle">
                 <button onclick="toggleMenu();">&#9776;</button>
             </li>
-            <li class="menu-item hidden"><a href="#">Home</a></li>
+            <li class="menu-item hidden"><a href="/">Home</a></li>
             <li class="menu-item hidden"><a href="/home">APP/home</a></li>
             <li class="menu-item hidden"><a href="/about">APP/about</a></li>
             <li class="menu-item hidden"><a href="/news">APP/news</a></li>
