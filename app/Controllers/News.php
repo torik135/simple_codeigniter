@@ -34,4 +34,32 @@ class News extends BaseController
         . view('news/view')
         . view('templates/footer');
     }
+
+    public function create()
+    {
+        $model = model(NewsModel::class);
+
+        $data = [
+            'title' => 'Create News',
+        ];
+
+        if ($this->request->getMethod() === 'post' && $this->validate([
+            'title' => 'required|min_length[3]|max_length[255]',
+            'body' => 'required',
+        ])) {
+            $model->save([
+                'title' => $this->request->getPost('title'),
+                'slug' => url_title($this->request->getPost('title'), '-', true),
+                'body' => $this->request->getPost('body'),
+            ]);
+
+            return view('templates/header', $data)
+            . view('news/success')
+            . view('templates/footer');
+        }
+
+        return view('templates/header', $data)
+        . view('news/create')
+        . view('templates/footer');
+    }
 }
