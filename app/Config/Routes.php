@@ -38,6 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->match(['get', 'post'], 'news/create', 'News::create');
+$routes->delete('news/(:num)', 'News::delete/$1');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 

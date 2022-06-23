@@ -23,6 +23,21 @@ li {
   transform: scale(1.1);
 }
 
+.btn-delete {
+  padding:  0.3rem 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: var(--color-prim);
+  color: var(--color-secd);
+}
+
+.btn-delete:hover {
+  cursor: pointer;
+  background-color: var(--color-prim-2);
+  transform: scale(1.1);
+}
+
 .pagination-div {
   display: flex;
 }
@@ -38,12 +53,23 @@ li {
   margin: 0.2rem;
 }
 
+.view-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+
+.view-header > * {
+  padding: 0.5rem;  
+}
+
+/* pagination */
 .active {
   border-radius: 5px;
   background-color: var(--color-prim);
 }
 
-/* pagination */
 .active > a {
   color: white;
   align-items: center;
