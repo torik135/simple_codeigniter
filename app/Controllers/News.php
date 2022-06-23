@@ -45,10 +45,25 @@ class News extends BaseController
             'title' => 'Create News',
         ];
 
-        if ($this->request->getMethod() === 'post' && $this->validate([
-            'title' => 'required|min_length[3]|max_length[255]',
-            'body' => 'required',
-        ])) {
+        $validateNews = [
+            'title' => [
+                'rules' =>'required|is_unique[news.title]|min_length[3]|max_length[255]',
+                'errors' => [
+                    'required' => 'Title cannot be empty.',
+                    'is_unique' => 'Title is taken. Please choose another.',
+                    'min_length' => 'Title must be longer than 3 words',
+                    'max_length' => 'Title is too long [3 to 255 words].',
+                ],
+        ],
+            'body' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Body cannot be empty.',
+                ],
+            ],
+        ];
+
+        if ($this->request->getMethod() === 'post' && $this->validate($validateNews)) {
             $model->save([
                 'title' => $this->request->getPost('title'),
                 'slug' => url_title($this->request->getPost('title'), '-', true),
