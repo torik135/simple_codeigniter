@@ -4,6 +4,10 @@
   --color-secd: rgba(255, 255, 255, 1);
 }
 
+li {
+  list-style: none;
+}
+
 .btn-submit {
   padding:  0.3rem 1rem;
   border: none;
@@ -17,4 +21,29 @@
   cursor: pointer;
   background-color: var(--color-prim-2);
   transform: scale(1.1);
+}
+
+.pagination-div {
+  display: flex;
+}
+
+.pagination-div nav ul {
+  display: flex;
+  flex-direction: row;
+  padding: 0.3rem;
+}
+
+.pagination-div nav ul li {
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+
+.active {
+  border-radius: 5px;
+  background-color: var(--color-prim);
+}
+
+.active > a {
+  color: white;
+  align-items: center;
 }

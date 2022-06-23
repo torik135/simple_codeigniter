@@ -28,8 +28,9 @@
     <?php endif ?>
 
     
-    
-    <?= $pager->links() ?>    
+    <div class="pagination-div">
+        <?= $pager->links() ?>    
+    </div>
     
     
     

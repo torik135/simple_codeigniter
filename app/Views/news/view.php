@@ -12,6 +12,7 @@
     <section>
 
         <h1><?= esc($title) ?></h1>
+        <h2><a href="/news"> << News List</a></h2>
 
     </section>
 </div>
