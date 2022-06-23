@@ -43,7 +43,18 @@ li {
   background-color: var(--color-prim);
 }
 
+/* pagination */
 .active > a {
   color: white;
   align-items: center;
+}
+
+/* validation errors */
+
+.errors > ul > li {
+  padding: 0.5rem;
+  margin: 0.3rem;
+  font-weight: bold;
+  background-color: red;
+  color: white;
 }
