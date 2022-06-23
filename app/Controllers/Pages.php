@@ -14,7 +14,12 @@ class Pages extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
 
-        $data['title'] = ucfirst($page);
+        // $data['title'] = ucfirst($page);
+        $data = [
+            'title' => ucfirst($page),
+            'views' => 'app/Views/pages/' . $page . '.php',
+            'ctr' => 'app/Controllers/Pages.php',
+        ];
 
         return view('templates/header', $data)
             .view('pages/' . $page)
