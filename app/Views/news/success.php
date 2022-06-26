@@ -1,6 +1,6 @@
 <section>
 
-    <h2>News item created successfuly.</h2>
+    <h2>News item <?= esc($success) ?> successfuly.</h2>
 
 </section>
 

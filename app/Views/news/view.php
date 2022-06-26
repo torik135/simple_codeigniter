@@ -7,10 +7,11 @@
             <input type="hidden" name="_method" value="DELETE"/>
             <button 
                 type="submit" 
-                class="btn-delete"
+                class="btn btn-delete"
                 onclick="return confirm('delete item (<?= esc($news['title']) ?>)?')"
                 >DELETE</button>
         </form>
+        <a class="btn btn-edit" href="edit/<?= esc($news['slug']) ?>">EDIT</a>
     </div>
 
     <p><?= esc($news['body']) ?></p>

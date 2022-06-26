@@ -8,6 +8,11 @@ li {
   list-style: none;
 }
 
+.btn {
+  height: 40px;
+  width: auto;
+}
+
 .btn-submit {
   padding:  0.3rem 1rem;
   border: none;
@@ -28,7 +33,7 @@ li {
   border: none;
   font-weight: bold;
   border-radius: 5px;
-  background-color: var(--color-prim);
+  background-color: red;
   color: var(--color-secd);
 }
 
@@ -38,19 +43,19 @@ li {
   transform: scale(1.1);
 }
 
-.pagination-div {
-  display: flex;
+.btn-edit {
+  padding:  0.3rem 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: blue;
+  color: var(--color-secd);
 }
 
-.pagination-div nav ul {
-  display: flex;
-  flex-direction: row;
-  padding: 0.3rem;
-}
-
-.pagination-div nav ul li {
-  padding: 0.3rem;
-  margin: 0.2rem;
+.btn-edit:hover {
+  cursor: pointer;
+  background-color: var(--color-prim-2);
+  transform: scale(1.1);
 }
 
 .view-header {
@@ -74,6 +79,22 @@ li {
   color: white;
   align-items: center;
 }
+
+.pagination-div {
+  display: flex;
+}
+
+.pagination-div nav ul {
+  display: flex;
+  flex-direction: row;
+  padding: 0.3rem;
+}
+
+.pagination-div nav ul li {
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+
 
 /* validation errors */
 

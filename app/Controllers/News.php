@@ -43,6 +43,7 @@ class News extends BaseController
 
         $data = [
             'title' => 'Create News',
+            'success' => 'Created',
         ];
 
         $validateNews = [
@@ -93,5 +94,73 @@ class News extends BaseController
         return view('templates/header', $data)
         . view('news/deleted')
         . view('templates/footer');
+    }
+
+    public function edit($slug)
+    {
+        $model = model(NewsModel::class);
+
+        $dbTitle = $model->getNews($slug);
+
+        $data = [
+            'title' => 'Edit News',
+            'news' => $model->getNews($slug),
+        ];
+
+        // return redirect('news/'. $slug);
+
+        return view('templates/header', $data)
+        . view('news/edit')
+        . view('templates/footer');
+    }
+
+    public function update($id)
+    {
+        $model = model(NewsModel::class);
+
+        $dbTitle = $model->getNews($this->request->getVar('slug'));
+        if($dbTitle['title'] == $this->request->getVar('title')){
+            $rule_title = 'required|min_length[3]|max_length[255]';
+        } else {
+            $rule_title = 'required|is_unique[news.title]|min_length[3]|max_length[255]';
+        }
+
+        $validateNews = [
+            'title' => [
+                'rules' => $rule_title, 
+                'errors' => [
+                    'required' => 'Title cannot be empty.',
+                    'is_unique' => 'Title is taken. Please choose another.',
+                    'min_length' => 'Title must be longer than 3 words',
+                    'max_length' => 'Title is too long [3 to 255 words].',
+                ],
+        ],
+            'body' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Body cannot be empty.',
+                ],
+            ],
+        ];
+
+        $data = [
+            'title' => 'Edit data',
+            'success' => 'Edited',
+        ];
+
+        if($this->validate($validateNews)) {
+            $model->save([
+                'id' => $id,
+                'title' => $this->request->getPost('title'),
+                'slug' => url_title($this->request->getPost('title'), '-', true),
+                'body' => $this->request->getPost('body'),
+            ]);
+
+            return view('templates/header', $data)
+            . view('news/success')
+            . view('templates/footer');
+        }
+
+        return redirect('news/'. $slug);
     }
 }
